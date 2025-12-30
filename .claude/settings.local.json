@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(bash .specify/scripts/bash/create-phr.sh:*)"
+    ]
+  }
+}

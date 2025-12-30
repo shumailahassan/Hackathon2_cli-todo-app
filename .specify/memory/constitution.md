@@ -1,17 +1,37 @@
-# Project Constitution - Hackathon II Phase I: In-Memory Todo Console App
+# Specification 001: In-Memory Console Todo App - Phase I Basic Features
 
-1. Strictly Spec-Driven Development using Spec-Kit Plus and Claude Code
-2. No manual coding allowed – all code must be generated via /specify or /sp slash commands
-3. In-memory storage only (no files, no database, no persistence)
-4. Use Python 3.13+ with UV as package manager
-5. Clean code principles: type hints, docstrings, modular design
-6. Console application using Typer for CLI and Rich for pretty output (colors, emojis)
-7. Implement exactly the 5 basic features:
-   - Add task with title and description
-   - List all tasks with ID, status (✅/❌), title, description
-   - Update task title/description by ID
-   - Delete task by ID
-   - Mark task as complete/incomplete by ID
-8. Interactive REPL loop with clear command prompt and feedback
-9. All artifacts (specs, plans, tasks, prompt history) must be preserved in .specify/ folder
-10. Use dataclass for Task model with auto-increment ID
+## Objective
+Implement a fully functional command-line Todo application with in-memory storage supporting exactly the 5 basic features required for Hackathon II Phase I.
+
+## Required Features
+1. Add task – provide title and description
+2. List all tasks – display with ID, status (✅ for complete, ❌ for incomplete), title, and description
+3. Update task – modify title and/or description by ID
+4. Delete task – remove by ID
+5. Mark as complete/incomplete – toggle status by ID
+
+## Task Model
+Use @dataclass for Task:
+- id: int (auto-increment starting from 1)
+- title: str
+- description: str
+- completed: bool = False
+- created_at: datetime (import from datetime)
+
+## Project Structure
+src/todo_app/
+├── __init__.py
+├── task.py          # Contains Task dataclass
+├── manager.py       # TodoManager class with all CRUD operations and in-memory list
+└── main.py          # Typer-based interactive REPL console app
+
+## Dependencies
+- typer
+- rich
+
+## User Experience Requirements
+- Interactive command loop with clear prompt
+- Pretty output using Rich (colors, emojis, simple tables if possible)
+- Clear success and error messages
+- Graceful handling of invalid inputs (e.g., task ID not found)
+- Command to quit/exit the app

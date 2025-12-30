@@ -1,0 +1,15 @@
+[project]
+name = "hackathon2-cli-todo-app"
+version = "0.1.0"
+description = "In-memory console todo app for Hackathon II"
+authors = [{ name = "Claude Sonnet 4.5", email = "noreply@anthropic.com" }]
+dependencies = [
+    "typer>=0.15.1",
+    "rich>=13.9.4",
+]
+requires-python = ">=3.13"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.4",
+]
